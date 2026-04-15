@@ -1,42 +1,72 @@
 
-# Getting Started with APIMATIC Calculator
+# Getting Started with Swagger Petstore - OpenAPI 3.0
 
 ## Introduction
 
-Simple calculator API hosted on APIMATIC
+This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
+Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
+You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+
+Some useful links:
+
+- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)
+- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)
+
+Find out more about Swagger: [https://swagger.io](https://swagger.io)
 
 ## Install the Package
 
 Run the following command from your project directory to install the package from npm:
 
 ```bash
-npm install link-payments-sdk@2.2.0
+npm install link-payments-sdk@2.0.1
 ```
 
-For additional package details, see the [Npm page for the link-payments-sdk@2.2.0 npm](https://www.npmjs.com/package/link-payments-sdk/v/2.2.0).
+For additional package details, see the [Npm page for the link-payments-sdk@2.0.1 npm](https://www.npmjs.com/package/link-payments-sdk/v/2.0.1).
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](doc/client.md)
 
 The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
+| environment | [`Environment`](README.md#environments) | The API environment. <br> **Default: `Environment.Production`** |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
-| httpClientOptions | [`Partial<HttpClientOptions>`](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/http-client-options.md) | Stable configurable http client options. |
+| httpClientOptions | [`Partial<HttpClientOptions>`](doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
-| logging | [`PartialLoggingOptions`](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/partial-logging-options.md) | Logging Configuration to enable logging |
+| logging | [`PartialLoggingOptions`](doc/partial-logging-options.md) | Logging Configuration to enable logging |
+| petstoreAuthCredentials | [`PetstoreAuthCredentials`](doc/auth/oauth-2-implicit-grant.md) | The credential object for petstoreAuth |
+| apiKeyCredentials | [`ApiKeyCredentials`](doc/auth/custom-header-signature.md) | The credential object for apiKey |
 
 The API client can be initialized as follows:
 
 ### Code-Based Client Initialization
 
 ```ts
-import { Client, LogLevel } from 'link-payments-sdk';
+import {
+  Client,
+  Environment,
+  LogLevel,
+  OauthScopePetstoreAuth,
+} from 'link-payments-sdk';
 
 const client = new Client({
+  petstoreAuthCredentials: {
+    oauthClientId: 'OAuthClientId',
+    oauthRedirectUri: 'OAuthRedirectUri',
+    oauthScopes: [
+      OauthScopePetstoreAuth.Writepets,
+      OauthScopePetstoreAuth.Readpets
+    ]
+  },
+  apiKeyCredentials: {
+    'api_key': 'api_key'
+  },
   timeout: 30000,
+  environment: Environment.Production,
   logging: {
     logLevel: LogLevel.Info,
     logRequest: {
@@ -66,7 +96,7 @@ const fileContent = fs.readFileSync(absolutePath, 'utf-8');
 const client = Client.fromJsonConfig(fileContent);
 ```
 
-See the [Configuration-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/configuration-based-client-initialization.md) section for details.
+See the [Configuration-Based Client Initialization](doc/configuration-based-client-initialization.md) section for details.
 
 ### Environment-Based Client Initialization
 
@@ -88,32 +118,51 @@ if (fs.existsSync(absolutePath)) {
 const client = Client.fromEnvironment(process.env);
 ```
 
-See the [Environment-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/environment-based-client-initialization.md) section for details.
+See the [Environment-Based Client Initialization](doc/environment-based-client-initialization.md) section for details.
+
+## Environments
+
+The SDK can be configured to use a different environment for making API calls. Available environments are:
+
+### Fields
+
+| Name | Description |
+|  --- | --- |
+| Production | **Default** |
+
+## Authorization
+
+This API uses the following authentication schemes.
+
+* [`petstore_auth (OAuth 2 Implicit Grant)`](doc/auth/oauth-2-implicit-grant.md)
+* [`api_key (Custom Header Signature)`](doc/auth/custom-header-signature.md)
 
 ## List of APIs
 
-* [Simple Calculator](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/controllers/simple-calculator.md)
+* [Pet](doc/controllers/pet.md)
+* [Store](doc/controllers/store.md)
+* [User](doc/controllers/user.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [HttpClientOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/http-client-options.md)
-* [RetryConfiguration](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/retry-configuration.md)
-* [ProxySettings](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/proxy-settings.md)
-* [Configuration-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/configuration-based-client-initialization.md)
-* [Environment-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/environment-based-client-initialization.md)
-* [PartialLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/partial-logging-options.md)
-* [PartialRequestLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/partial-request-logging-options.md)
-* [PartialResponseLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/partial-response-logging-options.md)
-* [LoggerInterface](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/logger-interface.md)
+* [HttpClientOptions](doc/http-client-options.md)
+* [RetryConfiguration](doc/retry-configuration.md)
+* [ProxySettings](doc/proxy-settings.md)
+* [Configuration-Based Client Initialization](doc/configuration-based-client-initialization.md)
+* [Environment-Based Client Initialization](doc/environment-based-client-initialization.md)
+* [PartialLoggingOptions](doc/partial-logging-options.md)
+* [PartialRequestLoggingOptions](doc/partial-request-logging-options.md)
+* [PartialResponseLoggingOptions](doc/partial-response-logging-options.md)
+* [LoggerInterface](doc/logger-interface.md)
 
 ### HTTP
 
-* [HttpRequest](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/http-request.md)
+* [HttpRequest](doc/http-request.md)
 
 ### Utilities
 
-* [ApiResponse](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/api-response.md)
-* [ApiError](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/2.2.0/doc/api-error.md)
+* [ApiResponse](doc/api-response.md)
+* [ApiError](doc/api-error.md)
 

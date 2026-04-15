@@ -42,6 +42,14 @@ const client = Client.fromJsonConfig(JSON.stringify(configModule.default));
 {
   "timeout": 30000,
   "environment": "production",
+  "petstoreAuthCredentials": {
+    "oauthClientId": "oauthclientid",
+    "oauthRedirectUri": "oauthredirecturi",
+    "oauthClockSkew": 0
+  },
+  "apiKeyCredentials": {
+    "apiKey": "api_key"
+  },
   "httpClientOptions": {
     "timeout": 30000,
     "retryConfig": {

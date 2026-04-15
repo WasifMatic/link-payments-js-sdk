@@ -47,6 +47,12 @@ const client = Client.fromEnvironment({
 TIMEOUT=30000
 ENVIRONMENT=production
 
+# Authentication Credentials
+PETSTORE_AUTH_OAUTH_CLIENT_ID=oauthclientid
+PETSTORE_AUTH_OAUTH_REDIRECT_URI=oauthredirecturi
+PETSTORE_AUTH_OAUTH_CLOCK_SKEW=0
+API_KEY_API_KEY=api_key
+
 # Retry Configuration
 MAX_NUMBER_OF_RETRIES=3
 RETRY_ON_TIMEOUT=true
