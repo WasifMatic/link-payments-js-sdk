@@ -20,10 +20,10 @@ Find out more about Swagger: [https://swagger.io](https://swagger.io)
 Run the following command from your project directory to install the package from npm:
 
 ```bash
-npm install link-payments-sdk@2.0.1
+npm install link-payments-sdk@2.0.3
 ```
 
-For additional package details, see the [Npm page for the link-payments-sdk@2.0.1 npm](https://www.npmjs.com/package/link-payments-sdk/v/2.0.1).
+For additional package details, see the [Npm page for the link-payments-sdk@2.0.3 npm](https://www.npmjs.com/package/link-payments-sdk/v/2.0.3).
 
 ## Initialize the API Client
 
