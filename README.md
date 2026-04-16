@@ -1,9 +1,8 @@
-
-# Getting Started with Swagger Petstore - OpenAPI 3.0
+# Getting Started with Swagger Petstore - OpenAPI 3.1
 
 ## Introduction
 
-This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about
+This is a sample Pet Store Server based on the OpenAPI 3.1 specification. You can find out more about
 Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!
 You can now help us improve the API whether it's by making changes to the definition itself or to the code.
 That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
@@ -20,10 +19,10 @@ Find out more about Swagger: [https://swagger.io](https://swagger.io)
 Run the following command from your project directory to install the package from npm:
 
 ```bash
-npm install link-payments-sdk@2.0.4
+npm install link-payments-sdk@1.0.0
 ```
 
-For additional package details, see the [Npm page for the link-payments-sdk@2.0.4 npm](https://www.npmjs.com/package/link-payments-sdk/v/2.0.4).
+For additional package details, see the [Npm page for the link-payments-sdk@1.0.0 npm](https://www.npmjs.com/package/link-payments-sdk/v/1.0.0).
 
 ## Initialize the API Client
 
@@ -31,15 +30,15 @@ For additional package details, see the [Npm page for the link-payments-sdk@2.0.
 
 The following parameters are configurable for the API Client:
 
-| Parameter | Type | Description |
-|  --- | --- | --- |
-| environment | [`Environment`](README.md#environments) | The API environment. <br> **Default: `Environment.Production`** |
-| timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
-| httpClientOptions | [`Partial<HttpClientOptions>`](doc/http-client-options.md) | Stable configurable http client options. |
-| unstableHttpClientOptions | `any` | Unstable configurable http client options. |
-| logging | [`PartialLoggingOptions`](doc/partial-logging-options.md) | Logging Configuration to enable logging |
-| petstoreAuthCredentials | [`PetstoreAuthCredentials`](doc/auth/oauth-2-implicit-grant.md) | The credential object for petstoreAuth |
-| apiKeyCredentials | [`ApiKeyCredentials`](doc/auth/custom-header-signature.md) | The credential object for apiKey |
+| Parameter                 | Type                                                            | Description                                                     |
+| ------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| environment               | [`Environment`](README.md#environments)                         | The API environment. <br> **Default: `Environment.Production`** |
+| timeout                   | `number`                                                        | Timeout for API calls.<br>_Default_: `30000`                    |
+| httpClientOptions         | [`Partial<HttpClientOptions>`](doc/http-client-options.md)      | Stable configurable http client options.                        |
+| unstableHttpClientOptions | `any`                                                           | Unstable configurable http client options.                      |
+| logging                   | [`PartialLoggingOptions`](doc/partial-logging-options.md)       | Logging Configuration to enable logging                         |
+| petstoreAuthCredentials   | [`PetstoreAuthCredentials`](doc/auth/oauth-2-implicit-grant.md) | The credential object for petstoreAuth                          |
+| apiKeyCredentials         | [`ApiKeyCredentials`](doc/auth/custom-header-signature.md)      | The credential object for apiKey                                |
 
 The API client can be initialized as follows:
 
@@ -59,22 +58,22 @@ const client = new Client({
     oauthRedirectUri: 'OAuthRedirectUri',
     oauthScopes: [
       OauthScopePetstoreAuth.Writepets,
-      OauthScopePetstoreAuth.Readpets
-    ]
+      OauthScopePetstoreAuth.Readpets,
+    ],
   },
   apiKeyCredentials: {
-    'api_key': 'api_key'
+    'api_key': 'api_key',
   },
   timeout: 30000,
   environment: Environment.Production,
   logging: {
     logLevel: LogLevel.Info,
     logRequest: {
-      logBody: true
+      logBody: true,
     },
     logResponse: {
-      logHeaders: true
-    }
+      logHeaders: true,
+    },
   },
 });
 ```
@@ -126,43 +125,42 @@ The SDK can be configured to use a different environment for making API calls. A
 
 ### Fields
 
-| Name | Description |
-|  --- | --- |
+| Name       | Description |
+| ---------- | ----------- |
 | Production | **Default** |
 
 ## Authorization
 
 This API uses the following authentication schemes.
 
-* [`petstore_auth (OAuth 2 Implicit Grant)`](doc/auth/oauth-2-implicit-grant.md)
-* [`api_key (Custom Header Signature)`](doc/auth/custom-header-signature.md)
+- [`petstore_auth (OAuth 2 Implicit Grant)`](doc/auth/oauth-2-implicit-grant.md)
+- [`api_key (Custom Header Signature)`](doc/auth/custom-header-signature.md)
 
 ## List of APIs
 
-* [Pet](doc/controllers/pet.md)
-* [Store](doc/controllers/store.md)
-* [User](doc/controllers/user.md)
+- [Pet](doc/controllers/pet.md)
+- [Store](doc/controllers/store.md)
+- [User](doc/controllers/user.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [HttpClientOptions](doc/http-client-options.md)
-* [RetryConfiguration](doc/retry-configuration.md)
-* [ProxySettings](doc/proxy-settings.md)
-* [Configuration-Based Client Initialization](doc/configuration-based-client-initialization.md)
-* [Environment-Based Client Initialization](doc/environment-based-client-initialization.md)
-* [PartialLoggingOptions](doc/partial-logging-options.md)
-* [PartialRequestLoggingOptions](doc/partial-request-logging-options.md)
-* [PartialResponseLoggingOptions](doc/partial-response-logging-options.md)
-* [LoggerInterface](doc/logger-interface.md)
+- [HttpClientOptions](doc/http-client-options.md)
+- [RetryConfiguration](doc/retry-configuration.md)
+- [ProxySettings](doc/proxy-settings.md)
+- [Configuration-Based Client Initialization](doc/configuration-based-client-initialization.md)
+- [Environment-Based Client Initialization](doc/environment-based-client-initialization.md)
+- [PartialLoggingOptions](doc/partial-logging-options.md)
+- [PartialRequestLoggingOptions](doc/partial-request-logging-options.md)
+- [PartialResponseLoggingOptions](doc/partial-response-logging-options.md)
+- [LoggerInterface](doc/logger-interface.md)
 
 ### HTTP
 
-* [HttpRequest](doc/http-request.md)
+- [HttpRequest](doc/http-request.md)
 
 ### Utilities
 
-* [ApiResponse](doc/api-response.md)
-* [ApiError](doc/api-error.md)
-
+- [ApiResponse](doc/api-response.md)
+- [ApiError](doc/api-error.md)
