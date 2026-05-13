@@ -10,23 +10,23 @@ Simple calculator API hosted on APIMATIC
 Run the following command from your project directory to install the package from npm:
 
 ```bash
-npm install link-payments-sdk@1.7.5
+npm install link-payments-sdk@1.0.10
 ```
 
-For additional package details, see the [Npm page for the link-payments-sdk@1.7.5 npm](https://www.npmjs.com/package/link-payments-sdk/v/1.7.5).
+For additional package details, see the [Npm page for the link-payments-sdk@1.0.10 npm](https://www.npmjs.com/package/link-payments-sdk/v/1.0.10).
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
-| httpClientOptions | [`Partial<HttpClientOptions>`](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/http-client-options.md) | Stable configurable http client options. |
+| httpClientOptions | [`Partial<HttpClientOptions>`](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
-| logging | [`PartialLoggingOptions`](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/partial-logging-options.md) | Logging Configuration to enable logging |
+| logging | [`PartialLoggingOptions`](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/partial-logging-options.md) | Logging Configuration to enable logging |
 
 The API client can be initialized as follows:
 
@@ -66,7 +66,7 @@ const fileContent = fs.readFileSync(absolutePath, 'utf-8');
 const client = Client.fromJsonConfig(fileContent);
 ```
 
-See the [Configuration-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/configuration-based-client-initialization.md) section for details.
+See the [Configuration-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/configuration-based-client-initialization.md) section for details.
 
 ### Environment-Based Client Initialization
 
@@ -88,32 +88,32 @@ if (fs.existsSync(absolutePath)) {
 const client = Client.fromEnvironment(process.env);
 ```
 
-See the [Environment-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/environment-based-client-initialization.md) section for details.
+See the [Environment-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/environment-based-client-initialization.md) section for details.
 
 ## List of APIs
 
-* [Simple Calculator](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/controllers/simple-calculator.md)
+* [Simple Calculator](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/controllers/simple-calculator.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [HttpClientOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/http-client-options.md)
-* [RetryConfiguration](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/retry-configuration.md)
-* [ProxySettings](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/proxy-settings.md)
-* [Configuration-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/configuration-based-client-initialization.md)
-* [Environment-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/environment-based-client-initialization.md)
-* [PartialLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/partial-logging-options.md)
-* [PartialRequestLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/partial-request-logging-options.md)
-* [PartialResponseLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/partial-response-logging-options.md)
-* [LoggerInterface](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/logger-interface.md)
+* [HttpClientOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/http-client-options.md)
+* [RetryConfiguration](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/retry-configuration.md)
+* [ProxySettings](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/proxy-settings.md)
+* [Configuration-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/configuration-based-client-initialization.md)
+* [Environment-Based Client Initialization](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/environment-based-client-initialization.md)
+* [PartialLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/partial-logging-options.md)
+* [PartialRequestLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/partial-request-logging-options.md)
+* [PartialResponseLoggingOptions](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/partial-response-logging-options.md)
+* [LoggerInterface](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/logger-interface.md)
 
 ### HTTP
 
-* [HttpRequest](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/http-request.md)
+* [HttpRequest](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/http-request.md)
 
 ### Utilities
 
-* [ApiResponse](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/api-response.md)
-* [ApiError](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.7.5/doc/api-error.md)
+* [ApiResponse](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/api-response.md)
+* [ApiError](https://www.github.com/WasifMatic/link-payments-js-sdk/tree/1.0.10/doc/api-error.md)
 

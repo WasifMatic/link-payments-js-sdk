@@ -33,6 +33,8 @@ async calculate(
 
 ## Response Type
 
+**200**
+
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `number`.
 
 ## Example Usage
